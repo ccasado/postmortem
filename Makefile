@@ -3,6 +3,7 @@ default:
 
 clean:
 	@find . -name \*.pyc -delete
+	@find . -name .DS_Store -delete
 
 install:
 	@pip install -r requirements.txt --index-url=https://artifactory.globoi.com/artifactory/api/pypi/pypi-all/simple
