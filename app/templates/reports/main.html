@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html class="google-js" lang="en">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script>
+      (function(H){H.className=H.className.replace(/\bgoogle\b/,'google-js')})(document.documentElement)
+    </script>
+    <script src="/static/maia.js"></script>
+    <script src="/static/cloudstatus_compiled.js"></script>
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <title>Globo.com Postmortem</title>
+
+    <link type="application/atom+xml" rel="alternate" href="https://status.cloud.google.com/feed.atom">
+    <link href="/static/css" rel="stylesheet">
+    <link href="/static/maia.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/cloud_status_compiled.css" type="text/css">
+    <link rel="shortcut icon" href="http://s.glbimg.com/en/ho/static/globo_com_2016/img/favicon.png" type="image/ico"/>
+  </head>
+  <body>
+    <div class="body">
+      <div class="header" id="maia-header" role="banner">
+        <div class="maia-aux">
+          <h1><a href="https://www.globo.com/"><img alt="Globo.com" width="160" src="/static/logo.png"></a></h1>
+        </div>
+      </div>
+        <div class="subheader maia-stage open-incident-bar-clear">
+          <div class="maia-aux">
+          <span class="status">
+          
+            Próxima reunião: a definir
+          
+          </span>
+        </div>
+      </div>
+      <div class="maia-stage">
+        <ul class="breadcrumbs maia-aux">
+          
+  <li><a href="/app">Postmortem</a></li>
+  {% if report.summary %}<li><a href="{% url 'detail' report.id %}">{{ report.summary }}</a></li>{% else %}<li></li>{% endif %}
+
+
+        </ul>
+      </div>
+      <div id="maia-main" role="main">
+        <h1 class="page-header"><a href="/app">Globo.com Postmortem</a></h1>
+        <p>
+        Esta página tem como finalidade reunir documentação sobre incidentes, fornecendo detalhes como impacto sobre produto afetado, causa raiz, ações de resolução e meio pelo qual o incidente foi detectado. Essas informações são obtidas através de reunião de postmortem com foco em identificar o que contribuiu com o incidente sem acusar qualquer indivíduo ou time por qualquer comportamento, e sempre visando a organização de ações preventivas e evitar recorrências. O processo de postmortem é necessário quando: é percebido pelo usuário final uma indisponibilidade ou degradação de performance de um serviço ou produto, perda de dados de qualquer tipo e incidentes sem alertas de monitoração. Os campos e metadados usados aqui são baseados na cultura Aprendendo com a falha do Google, <a href="https://landing.google.com/sre/book/chapters/postmortem.html">exemplo</a>.
+        </p>
+

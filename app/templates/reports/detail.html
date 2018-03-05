@@ -1,12 +1,24 @@
-<h1>{{ report.summary }}</h1>
-<ul>
-    <li>Date: {{ report.date }}</li>
-    <li>Impact: {{ report.impact }}</li>
-    <li>Root causes: {{ report.root_causes }}</li>
-    <li>Trigger: {{ report.trigger }}</li>
-    <li>Resolution: {{ report.resolution }}</li>
-    <li>Detection: {{ report.detection }}</li>
-    {% for action in report.action_set.all %}
-        <li>{{ action.item }}</li>
-    {% endfor %}
-</ul>
+{% include "reports/main.html" %}
+
+<table class="updates incident">
+	<h1>Incidente: {{ report.summary }}</h1>
+    <tbody>
+        <tr>
+          <td>
+          	<p>Data: {{ report.date }}</p>
+          	<p>Produto: {{ report.product }}</p>
+            <p>Impacto: {{ report.impact }}</p>
+            <p>Causa raiz: {{ report.root_causes }}</p>
+            <p>Trigger: {{ report.trigger }}</p>
+            <p>Resolução: {{ report.resolution }}</p>
+            <p>Detecção: {{ report.detection }}</p>
+            <p>Ações:</p>
+              {% for action in report.action_set.all %}
+                  <p>{{ action.item }}</p>
+              {% endfor %}
+          </td>
+        </tr>        
+    </tbody>
+  </table>   
+
+{% include "reports/footer.html" %}
