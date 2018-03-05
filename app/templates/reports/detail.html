@@ -1,0 +1,12 @@
+<h1>{{ report.summary }}</h1>
+<ul>
+    <li>Date: {{ report.date }}</li>
+    <li>Impact: {{ report.impact }}</li>
+    <li>Root causes: {{ report.root_causes }}</li>
+    <li>Trigger: {{ report.trigger }}</li>
+    <li>Resolution: {{ report.resolution }}</li>
+    <li>Detection: {{ report.detection }}</li>
+    {% for action in report.action_set.all %}
+        <li>{{ action.item }}</li>
+    {% endfor %}
+</ul>
