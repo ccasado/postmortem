@@ -5,15 +5,14 @@
       (function(H){H.className=H.className.replace(/\bgoogle\b/,'google-js')})(document.documentElement)
     </script>
     <script src="/static/maia.js"></script>
-    <script src="/static/cloudstatus_compiled.js"></script>
+    <script src="/static/pm_compiled.js"></script>
     <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
 
     <title>Globo.com Postmortem</title>
 
-    <link type="application/atom+xml" rel="alternate" href="https://status.cloud.google.com/feed.atom">
     <link href="/static/css" rel="stylesheet">
     <link href="/static/maia.css" rel="stylesheet">
-    <link rel="stylesheet" href="/static/cloud_status_compiled.css" type="text/css">
+    <link rel="stylesheet" href="/static/pm_status_compiled.css" type="text/css">
     <link rel="shortcut icon" href="http://s.glbimg.com/en/ho/static/globo_com_2016/img/favicon.png" type="image/ico"/>
   </head>
   <body>
@@ -36,6 +35,7 @@
         <ul class="breadcrumbs maia-aux">
           
   <li><a href="/app">Postmortem</a></li>
+  {% if report.product %}<li><a>{{ report.product }}</a></li>{% endif %}
   {% if report.summary %}<li><a href="{% url 'detail' report.id %}">{{ report.summary }}</a></li>{% else %}<li></li>{% endif %}
 
 

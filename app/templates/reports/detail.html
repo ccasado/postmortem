@@ -4,17 +4,28 @@
 	<h1>Incidente: {{ report.summary }}</h1>
     <tbody>
         <tr>
+          <td></td>
           <td>
-          	<p>Data: {{ report.date }}</p>
-          	<p>Produto: {{ report.product }}</p>
-            <p>Impacto: {{ report.impact }}</p>
-            <p>Causa raiz: {{ report.root_causes }}</p>
-            <p>Trigger: {{ report.trigger }}</p>
-            <p>Resolução: {{ report.resolution }}</p>
-            <p>Detecção: {{ report.detection }}</p>
-            <p>Ações:</p>
+          	<p>DATA:</p>
+            <p>{{ report.date }}</p>
+          	<p>PRODUTO:</p>
+            <p>{{ report.product }}</p>
+            <p>AUTORES:</p>
+            <p>{{ report.authors }}</p>
+            <p>IMPACTO:</p>
+            <p>{{ report.impact }}</p>
+            <p>CAUSA RAIZ:</p>
+            <p>{{ report.root_causes }}</p>
+            <p>TRIGGER:</p>
+            <p>{{ report.trigger }}</p>
+            <p>RESOLUÇÃO:</p>
+            <p>{{ report.resolution }}</p>
+            <p>DETECÇÃO:</p>
+            <p>{{ report.detection }}</p>
+            <p>AÇÕES:</p>
               {% for action in report.action_set.all %}
-                  <p>{{ action.item }}</p>
+                  <p>Item: {{ action.item }}</p>
+                  <p>Dono: {{ action.owner }}</p>
               {% endfor %}
           </td>
         </tr>        
