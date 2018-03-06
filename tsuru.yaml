@@ -1,0 +1,8 @@
+healthcheck:
+  path: /healthcheck.html
+  method: GET
+  status: 200
+  match: .*WORKING.*
+  allowed_failures: 0
+  use_in_router: false
+  router_body: content
