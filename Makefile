@@ -8,9 +8,6 @@ clean:
 install:
 	@pip install -r requirements.txt --index-url=https://artifactory.globoi.com/artifactory/api/pypi/pypi-all/simple
 
-test:
-	@python -m unittest discover -v
-
 makemigrations:
 	@python manage.py makemigrations app
 
