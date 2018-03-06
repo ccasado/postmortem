@@ -25,7 +25,9 @@ SECRET_KEY = 'j9lowy69kcygc0v=s4)3-uvo-m!#teb1_*4j2o77--l7ob=pk2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'postmortem.gcloud.globoi.com',
+]
 
 
 # Application definition
