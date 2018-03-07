@@ -1,3 +1,3 @@
-libmysqlclient-dev
 Django==1.11
+python-mysqldb
 MySQL-python==1.2.5
