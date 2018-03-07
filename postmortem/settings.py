@@ -90,8 +90,8 @@ DATABASES = {
         'NAME': 'mysql_postmortem',
         'USER': os.environ['DBAAS_MYSQL_USER'],
         'PASSWORD': os.environ['DBAAS_MYSQL_PASSWORD'],
-        'HOST': os.environ["DBAAS_MYSQL_ENDPOINT"].split(":")[0],
-        'PORT': os.environ["DBAAS_MYSQL_ENDPOINT"].split(":")[1],
+        'HOST': 'mysqlpostm152043076888.mysql.globoi.com',
+        'PORT': '3306',
         }
 }
 
