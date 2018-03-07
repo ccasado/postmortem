@@ -1,3 +1,4 @@
+mysql
 Django==1.11
-#MySQL-python==1.2.5
-mysql-python
+MySQL-python==1.2.5
+#mysql-python
