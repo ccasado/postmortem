@@ -22,11 +22,50 @@
             <p>{{ report.resolution }}</p>
             <p>DETECÇÃO:</p>
             <p>{{ report.detection }}</p>
-            <p>AÇÕES:</p>
+            <table class="updates incident">
+            <thead>
+              <tr>
+                <th>
+                  AÇÕES
+                </th>
+                <th>
+                  TIPO
+                </th>
+                <th>
+                  DONO
+                </th>
+                <th>
+                  STATUS
+                </th>
+              </tr>
+            </thead>
+            <tbody>
               {% for action in report.action_set.all %}
-                  <p>Item: {{ action.item }}</p>
-                  <p>Dono: {{ action.owner }}</p>
+                <tr>
+                  <td>
+                    <p>
+                      {{ action.item }}
+                    </p>
+                  </td>
+                  <td>
+                    <p>
+                      {{ action.action_type }}
+                    </p>
+                  </td>
+                  <td>
+                    <p>
+                      {{ action.owner }}
+                    </p>
+                  </td>
+                  <td>
+                    <p>
+                      {{ action.status }}
+                    </p>
+                  </td>
+                </tr>
               {% endfor %}
+            </tbody>
+            </table>
           </td>
         </tr>        
     </tbody>
