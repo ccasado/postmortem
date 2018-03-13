@@ -1,5 +1,13 @@
 {% include "reports/main.html" %}
 
+{% block content %}
+  <form method="get">
+    {{ filter.form.as_p }}
+    <button type="submit">Buscar</button>
+  </form>
+  <ul>
+{% endblock %}
+
 <table class="updates incident">
     <thead>
       <tr>
@@ -11,23 +19,22 @@
     </thead>
     <tbody>
         <tr>         
-          {% if latest_report_list %}
-          {% for report in latest_report_list %}          
-          <td class="status"><span class="bubble ok"></span></td>
-          <td class="date">{{ report.date }}</td>
-          <td class="time">{{ report.product }}</td>
-          <td class="description"><p><a href="{% url 'detail' report.id %}">{{ report.summary }}</a></p>
+          {% if filter.qs %}
+            {% for report in filter.qs %}
+              <td class="status"><span class="bubble ok"></span></td>
+              <td class="date">{{ report.date }}</td>
+              <td class="time">{{ report.product }}</td>
+              <td class="description"><p><a href="{% url 'detail' report.id %}">{{ report.summary }}</a></p>
 
-          <p>{{ report.impact }}</p>
+              <p>{{ report.impact }}</p>
 
-          </td>
-          <tr class="next-row-desc"></tr>
-          {% endfor %}
+              </td>
+              <tr class="next-row-desc"></tr>
+            {% endfor %}
           {% else %}
-            <p>No reports are available.</p>
+            <p>Nenhum incidente encontrado.</p>
           {% endif %}
         </tr>
-
     </tbody>
   </table>        
 

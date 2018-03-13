@@ -26,9 +26,9 @@ make runserver
 ## Para desenvolvimento local, exportar as ENVs de credenciais para o DBaaS
 
 ```
-export DBAAS_MYSQL_ENDPOINT='host do banco de dados'
+export DBAAS_MYSQL_HOST='mysqlpostm-01-152088146188.dev.mysql.globoi.com'
 export DBAAS_MYSQL_PASSWORD='xxxxxxx'
-export DBAAS_MYSQL_USER='usuario do banco de dados'
+export DBAAS_MYSQL_USER='u_mysql_postmort'
 ```
 
 ## Dashboard da app no Tsuru
@@ -43,7 +43,7 @@ export DBAAS_MYSQL_USER='usuario do banco de dados'
 ### Tasklist
 
 - [ ] Autenticação de usuários com LDAP
-- [ ] Filtros na home principal pelo campo "produto"
+- [X] Filtros na home principal pelo campo "produto"
 - [ ] Busca para conteúdo de todos os campos
 - [ ] HTTPS
 - [ ] Status do incidente

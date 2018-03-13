@@ -2,12 +2,13 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.urls import reverse
 
 
 class Report(models.Model):
     date = models.DateField('Date')
     pub_date = models.DateTimeField('Date published')
-    product = models.CharField(max_length=50, default='', verbose_name='Product')
+    product = models.CharField(max_length=50, default='', verbose_name='Produto')
     authors = models.CharField(max_length=100, default='', verbose_name='Authors')
     summary = models.CharField(max_length=100, default='', verbose_name='Summary')
     impact = models.TextField('Impact', default='', help_text='Efeito sobre o usuário final ou ao negócio.')
@@ -35,10 +36,5 @@ class Action(models.Model):
     action_type = models.CharField(max_length=50, choices=ACTION_TYPE_CHOICES, default='other', verbose_name='Type')
     owner = models.CharField(max_length=50, default='', verbose_name='Owner')
 
-    #def __str__(self):
-        #return self.item
-        #return unicode(self.item, 'utf-8')
-
     def __unicode__(self):
         return self.item
-
