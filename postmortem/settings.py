@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import urllib
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -125,7 +126,23 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-#STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
 STATIC_URL = 'https://s3.glbimg.com/v1/AUTH_f5233c83d9314ac397cd734f37371b7e/postmortem/'
+
+# OAUTH2
+OAUTH2_ACTIVE = True
+OAUTH2_ENDPOINT = "https://accounts.backstage.dev.globoi.com"
+OAUTH2_CLIENT_ID = "key6IQhsYPTTpjm/ApSD5A=="
+OAUTH2_CLIENT_SECRET = "oijNaoHG/raFoGlw3Kgtdg=="
+OAUTH2_REDIRECT_URL = "http://localhost:8000/oauth2"
+OAUTH2_REDIRECT_URL_LOGOUT = "http://localhost:8000/"
+OAUTH2_USER_URL = OAUTH2_ENDPOINT + "/user"
+OAUTH2_TOKEN_URL = OAUTH2_ENDPOINT + "/token"
+OAUTH2_PARAMS = urllib.urlencode({"response_type": "code",
+                                 "client_id": OAUTH2_CLIENT_ID,
+                                 "redirect_uri": OAUTH2_REDIRECT_URL})
+OAUTH2_LOGIN_URL = OAUTH2_ENDPOINT + "/authorize?" + OAUTH2_PARAMS
+OAUTH2_LOGOUT_URL = OAUTH2_ENDPOINT + "/logout"
+
 
 

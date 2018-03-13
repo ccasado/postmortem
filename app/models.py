@@ -21,20 +21,27 @@ class Report(models.Model):
         return self.summary
 
 class Action(models.Model):
-    MITIGATE = 'MIT'
-    PREVENT = 'PREV'
-    PROCESS = 'PROC'
-    OTHER = 'OTH'
+    MITIGATE = 'Mitigação'
+    PREVENT = 'Prevenção'
+    PROCESS = 'Processo'
+    OTHER = 'Outro'
     ACTION_TYPE_CHOICES = (
         (MITIGATE, 'mitigação'),
         (PREVENT, 'prevenção'),
         (PROCESS, 'processo'),
         (OTHER, 'outro')
     )
+    TODO = 'TODO'
+    DONE = 'Concluído'
+    STATUS = (
+        (TODO, 'TODO'),
+        (DONE, 'Concluído'),
+    )
     report = models.ForeignKey(Report, on_delete=models.CASCADE, default='')
     item = models.CharField(max_length=100, default='', verbose_name='Item')
     action_type = models.CharField(max_length=50, choices=ACTION_TYPE_CHOICES, default='other', verbose_name='Type')
     owner = models.CharField(max_length=50, default='', verbose_name='Owner')
+    status = models.CharField(max_length=50, choices=STATUS, default='TODO', verbose_name='Status')
 
     def __unicode__(self):
         return self.item
