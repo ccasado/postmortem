@@ -1,13 +1,19 @@
 {% include "reports/main.html" %}
 
 <table class="updates incident">
-	<h1>Incidente: {{ report.summary }}</h1>
+	<h1>Incidente {{ report.id }}: {{ report.summary }}</h1>
     <tbody>
         <tr>
           <td></td>
           <td>
           	<p>DATA:</p>
             <p>{{ report.date }}</p>
+            <p>HORA INÍCIO:</p>
+            <p>{{ report.start_time|default:"" }}</p>
+            <p>HORA FIM:</p>
+            <p>{{ report.end_time|default:"" }}</p>
+            <p>HORA DETECÇÃO:</p>
+            <p>{{ report.detect_time|default:"" }}</p>
           	<p>PRODUTO:</p>
             <p>{{ report.product }}</p>
             <p>AUTORES:</p>

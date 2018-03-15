@@ -7,7 +7,10 @@ from django.urls import reverse
 
 class Report(models.Model):
     date = models.DateField('Date')
-    pub_date = models.DateTimeField('Date published')
+    pub_date = models.DateTimeField('Date published', auto_now=True)
+    start_time = models.TimeField('Start Time', null=True, blank=True)
+    end_time = models.TimeField('End Time', null=True, blank=True)
+    detect_time = models.TimeField('Detect Time', null=True, blank=True)
     product = models.CharField(max_length=50, default='', verbose_name='Produto')
     authors = models.CharField(max_length=100, default='', verbose_name='Authors')
     summary = models.CharField(max_length=100, default='', verbose_name='Summary')
