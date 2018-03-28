@@ -4,6 +4,11 @@ from __future__ import unicode_literals
 from django.db import models
 from django.urls import reverse
 
+class Product(models.Model):
+    name = models.CharField(max_length=50, default='')
+
+    def __str__(self):
+        return "%s" % self.name
 
 class Report(models.Model):
     date = models.DateField('Date')
@@ -11,7 +16,7 @@ class Report(models.Model):
     start_time = models.TimeField('Start Time', null=True, blank=True)
     end_time = models.TimeField('End Time', null=True, blank=True)
     detect_time = models.TimeField('Detect Time', null=True, blank=True)
-    product = models.CharField(max_length=50, default='', verbose_name='Produto')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
     authors = models.CharField(max_length=100, default='', verbose_name='Authors')
     summary = models.CharField(max_length=100, default='', verbose_name='Summary')
     impact = models.TextField('Impact', default='', help_text='Efeito sobre o usuário final ou ao negócio.')
@@ -48,3 +53,5 @@ class Action(models.Model):
 
     def __unicode__(self):
         return self.item
+
+

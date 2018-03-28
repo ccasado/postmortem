@@ -40,11 +40,3 @@ export DBAAS_MYSQL_USER='u_mysql_postmort'
 [Container](http://vault.gcloud.globoi.com/storage/objects/postmortem/?p=f5233c83d9314ac397cd734f37371b7e)
 
 
-### Tasklist
-
-- [ ] Autenticação de usuários com LDAP
-- [X] Filtros na home principal pelo campo "produto"
-- [ ] Busca para conteúdo de todos os campos
-- [ ] HTTPS
-- [ ] Status do incidente
-- [ ] Upload de arquivos de evidências
