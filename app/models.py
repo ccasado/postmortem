@@ -10,13 +10,16 @@ class Product(models.Model):
     def __str__(self):
         return "%s" % self.name
 
+    class Meta:
+        ordering = ('name',)
+
 class Report(models.Model):
     date = models.DateField('Date')
     pub_date = models.DateTimeField('Date published', auto_now=True)
     start_time = models.TimeField('Start Time', null=True, blank=True)
     end_time = models.TimeField('End Time', null=True, blank=True)
     detect_time = models.TimeField('Detect Time', null=True, blank=True)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='Produto')
     authors = models.CharField(max_length=100, default='', verbose_name='Authors')
     summary = models.CharField(max_length=100, default='', verbose_name='Summary')
     impact = models.TextField('Impact', default='', help_text='Efeito sobre o usuário final ou ao negócio.')
