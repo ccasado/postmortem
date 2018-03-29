@@ -13,6 +13,17 @@ class Product(models.Model):
     class Meta:
         ordering = ('name',)
 
+class Author(models.Model):
+    name = models.CharField(max_length=50, default='')
+    email = models.EmailField(max_length=50, default='')
+    is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return "%s" % self.name
+
+    class Meta:
+        ordering = ('name',)
+
 class Report(models.Model):
     date = models.DateField('Date')
     pub_date = models.DateTimeField('Date published', auto_now=True)
@@ -20,7 +31,7 @@ class Report(models.Model):
     end_time = models.TimeField('End Time', null=True, blank=True)
     detect_time = models.TimeField('Detect Time', null=True, blank=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='Produto')
-    authors = models.CharField(max_length=100, default='', verbose_name='Authors')
+    authors = models.ManyToManyField(Author)
     summary = models.CharField(max_length=100, default='', verbose_name='Summary')
     impact = models.TextField('Impact', default='', help_text='Efeito sobre o usuário final ou ao negócio.')
     root_causes = models.TextField('Root causes', default='', help_text='Explicação sobre as circunstâncias em que o incidente ocorreu. Pode ser útil usar a técnica 5 Whys.')

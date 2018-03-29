@@ -17,7 +17,9 @@
           	<p>PRODUTO:</p>
             <p>{{ report.product }}</p>
             <p>AUTORES:</p>
-            <p>{{ report.authors }}</p>
+            {% for author in report.authors.all %}
+              <p>{{ author.name }} - {{ author.email }}</p>
+            {% endfor %}
             <p>IMPACTO:</p>
             <p>{{ report.impact }}</p>
             <p>CAUSA RAIZ:</p>
