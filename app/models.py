@@ -19,7 +19,7 @@ class Author(models.Model):
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
-        return "%s" % self.name
+        return "%s - %s" % (self.name, self.email)
 
     class Meta:
         ordering = ('name',)

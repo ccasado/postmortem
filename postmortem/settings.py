@@ -138,9 +138,9 @@ STATIC_URL = 'https://s3.glbimg.com/v1/AUTH_f5233c83d9314ac397cd734f37371b7e/pos
 
 # OAUTH2
 OAUTH2_ACTIVE = True
-OAUTH2_ENDPOINT = "https://accounts.backstage.dev.globoi.com"
-OAUTH2_CLIENT_ID = "key6IQhsYPTTpjm/ApSD5A=="
-OAUTH2_CLIENT_SECRET = "oijNaoHG/raFoGlw3Kgtdg=="
+OAUTH2_ENDPOINT = os.environ['OAUTH2_ENDPOINT']
+OAUTH2_CLIENT_ID = os.environ['OAUTH2_CLIENT_ID']
+OAUTH2_CLIENT_SECRET = os.environ['OAUTH2_CLIENT_SECRET']
 OAUTH2_REDIRECT_URL = "http://localhost:8000/oauth2"
 OAUTH2_REDIRECT_URL_LOGOUT = "http://localhost:8000/"
 OAUTH2_USER_URL = OAUTH2_ENDPOINT + "/user"
