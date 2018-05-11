@@ -7,7 +7,7 @@ from .filters import ReportFilter
 
 @cache_page(60 * 1)
 def index(request):
-    report_list = Report.objects.order_by('date')
+    report_list = Report.objects.order_by('-date')
     report_filter = ReportFilter(request.GET, queryset=report_list)
     return render(request, 'reports/index.html', {'filter': report_filter})
 
