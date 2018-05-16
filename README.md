@@ -31,6 +31,14 @@ export DBAAS_MYSQL_PASSWORD='xxxxxxx'
 export DBAAS_MYSQL_USER='u_mysql_postmort'
 ```
 
+## Para habilitar a notificação da criação de um novo postmortem em canal no Slack, no settings.py
+
+```
+# SLACK REPORT NOTIFICATION
+SLACK_ENABLE = True
+CHANNEL = "C9PJE77K3" #postmortem
+```
+
 ## Dashboard da app no Tsuru
 
 [Dashboard da app](http://tsuru-dashboard.cloud.globoi.com/apps/postmortem)

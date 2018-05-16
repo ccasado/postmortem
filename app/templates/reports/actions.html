@@ -1,0 +1,37 @@
+{% include "reports/main.html" %}
+
+{% block content %}
+  <form method="get">
+    {{ filter.form.as_p }}
+    <button type="submit">Buscar</button>
+  </form>
+  <ul>
+{% endblock %}
+
+<table class="updates incident">
+    <thead>
+      <tr>
+        <th></th>
+        <th class="status">Status</th>
+        <th class="date">Dono</th>
+        <th class="description">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>         
+          {% if filter.qs %}
+            {% for action in filter.qs %}
+              <td></td>
+              <td class="status">{{ action.status }}</td>
+              <td class="date">{{ action.owner }}</td>
+              <td class="description">{{ action.item }}</td>
+              <tr class="next-row-desc"></tr>
+            {% endfor %}
+          {% else %}
+            <p>Nenhuma ação encontrada.</p>
+          {% endif %}
+        </tr>
+    </tbody>
+  </table>        
+
+{% include "reports/footer.html" %}
