@@ -39,8 +39,9 @@
     });
     </script>
 
-{% for product in p %}
-    {{ product.name }}
+{% for p in report %}
+    {{ p.product }}
+    {{ p.total }}
 {% endfor %}
 
 

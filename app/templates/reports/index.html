@@ -21,7 +21,11 @@
         <tr>         
           {% if filter.qs %}
             {% for report in filter.qs %}
-              <td class="status"><span class="bubble ok"></span></td>
+              {% if report.pk in actions_pending %}
+                <td class="status"><span class="bubble high"></span></td>
+              {% else %}
+                <td class="status"><span class="bubble ok"></span></td>
+              {% endif %}
               <td class="date">{{ report.date }}</td>
               <td class="time">{{ report.product }}</td>
               <td class="description"><p><a href="{% url 'detail' report.id %}">{{ report.summary }}</a></p>
@@ -37,5 +41,7 @@
         </tr>
     </tbody>
   </table>        
+
+
 
 {% include "reports/footer.html" %}
