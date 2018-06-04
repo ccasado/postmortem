@@ -29,6 +29,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     'localhost',
     'postmortem.gcloud.globoi.com',
+    'postmortem.globoi.com',
 ]
 
 
@@ -79,7 +80,7 @@ WSGI_APPLICATION = 'postmortem.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mysql_postmortem',
+        'NAME': os.environ['DBAAS_MYSQL_DATABASE'],
         'USER': os.environ['DBAAS_MYSQL_USER'],
         'PASSWORD': os.environ['DBAAS_MYSQL_PASSWORD'],
         'HOST': os.environ['DBAAS_MYSQL_HOST'],
