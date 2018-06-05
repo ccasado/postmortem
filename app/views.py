@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
+import json
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
 from django.views.decorators.cache import cache_page
 from django.db.models import Count
-from .models import Report, Action
+from .models import Report, Action, Product
 from .filters import ReportFilter, ActionFilter
 from django.db.models import Q
 
@@ -34,6 +35,14 @@ def actions(request):
     return render(request, 'reports/actions.html', {'filter': action_filter})
 
 
-def numbers(request):
-    report = Report.objects.values('product').annotate(total=Count('product')).order_by()
-    return render(request, 'reports/numbers.html', {'report': report})
+def metrics(request):
+    products = Product.objects.annotate(number_of_products=Count('report'))
+    names = [obj.name for obj in products]
+    total = [obj.number_of_products for obj in products]
+    
+    context = {
+        'names': json.dumps(names),
+        'total': json.dumps(total),
+    }
+
+    return render(request, 'reports/metrics.html', context)
