@@ -142,20 +142,4 @@ STATIC_URL = 'https://s3.glbimg.com/v1/AUTH_f5233c83d9314ac397cd734f37371b7e/pos
 SLACK_ENABLE = False
 CHANNEL = "C9PJE77K3" #postmortem
 
-# OAUTH2
-OAUTH2_ACTIVE = True
-OAUTH2_ENDPOINT = os.environ['OAUTH2_ENDPOINT']
-OAUTH2_CLIENT_ID = os.environ['OAUTH2_CLIENT_ID']
-OAUTH2_CLIENT_SECRET = os.environ['OAUTH2_CLIENT_SECRET']
-OAUTH2_REDIRECT_URL = "http://localhost:8000/oauth2"
-OAUTH2_REDIRECT_URL_LOGOUT = "http://localhost:8000/"
-OAUTH2_USER_URL = OAUTH2_ENDPOINT + "/user"
-OAUTH2_TOKEN_URL = OAUTH2_ENDPOINT + "/token"
-OAUTH2_PARAMS = urllib.urlencode({"response_type": "code",
-                                 "client_id": OAUTH2_CLIENT_ID,
-                                 "redirect_uri": OAUTH2_REDIRECT_URL})
-OAUTH2_LOGIN_URL = OAUTH2_ENDPOINT + "/authorize?" + OAUTH2_PARAMS
-OAUTH2_LOGOUT_URL = OAUTH2_ENDPOINT + "/logout"
-
-
 
