@@ -1,7 +1,7 @@
 {% include "reports/main.html" %}
 
 <div id="maia-main" role="main">
-    <canvas id="myChart" width="400" height="300"></canvas>
+    <canvas id="myChart" width="500" height="400"></canvas>
     <script>
     var ctx = document.getElementById("myChart").getContext('2d');
     var names = JSON.parse('{{ names|safe }}');
@@ -29,16 +29,24 @@
             }]
         },
         options: {
-            responsive: false,
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero:true
-                    }
-                }]
-            }
+          responsive: false,
+          scales: {
+             yAxes: [{
+                 ticks: {
+                     beginAtZero:true
+                 }
+             }]
+          },
+          legend: { 
+            display: false
+          },
+          title: {
+            display: true,
+            text: 'Incidentes por produtos'
+          }
         }
     });
+
     </script>
 
 </div>

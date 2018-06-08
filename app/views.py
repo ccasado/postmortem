@@ -36,7 +36,7 @@ def actions(request):
 
 
 def metrics(request):
-    products = Product.objects.annotate(number_of_products=Count('report'))
+    products = Product.objects.annotate(number_of_products=Count('report')).order_by('-number_of_products')[:5]
     names = [obj.name for obj in products]
     total = [obj.number_of_products for obj in products]
     
