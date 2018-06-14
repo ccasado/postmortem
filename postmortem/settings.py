@@ -133,7 +133,7 @@ CACHES = {
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-HOST = 'http://postmortem.gcloud.globoi.com'
+HOST = 'http://postmortem.globoi.com'
 
 # STATIC_URL = '/static/'
 STATIC_URL = 'https://s3.glbimg.com/v1/AUTH_f5233c83d9314ac397cd734f37371b7e/postmortem/'

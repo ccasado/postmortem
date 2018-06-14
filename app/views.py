@@ -39,10 +39,14 @@ def metrics(request):
     products = Product.objects.annotate(number_of_products=Count('report')).order_by('-number_of_products')[:5]
     names = [obj.name for obj in products]
     total = [obj.number_of_products for obj in products]
+    actions_open = Action.objects.filter(status='TODO').count()
+    actions_closed = Action.objects.filter(status='Concluído').count()
     
     context = {
         'names': json.dumps(names),
         'total': json.dumps(total),
+        'actions_open': actions_open,
+        'actions_closed': actions_closed,
     }
 
     return render(request, 'reports/metrics.html', context)
